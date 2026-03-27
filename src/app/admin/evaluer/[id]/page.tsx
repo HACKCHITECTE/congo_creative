@@ -213,7 +213,7 @@ export default function EvaluerTalent() {
                 <div key={key}>
                   <div className="flex justify-between text-xs mb-1">
                     <label className="capitalize">{key}</label>
-                    <span className="text-accent">{notes[key]}/10</span>
+                    <span className="text-accent">{notes[key as keyof typeof notes]}/10</span>
                   </div>
                   <input 
                     type="range" 
@@ -221,7 +221,7 @@ export default function EvaluerTalent() {
                     max="10" 
                     step="0.5" 
                   // 👇 Le "?? 0" règle le problème : si notes[key] est undefined, il utilise 0
-                    value={notes[key] ?? 0} 
+                    value={notes[key as keyof typeof notes] ?? 0} 
                     onChange={(e) => setNotes({
                       ...notes, 
                       [key]: parseFloat(e.target.value) || 0 
@@ -239,7 +239,7 @@ export default function EvaluerTalent() {
                 <div key={key}>
                   <div className="flex justify-between text-xs mb-1">
                     <label className="capitalize">{key}</label>
-                    <span className="text-accent">{notes[key]}/10</span>
+                    <span className="text-accent">{notes[key as keyof typeof notes]}/10</span>
                   </div>
                   <input 
                     type="range" 
@@ -247,7 +247,7 @@ export default function EvaluerTalent() {
                     max="10" 
                     step="0.5" 
                   // 👇 Le "?? 0" règle le problème : si notes[key] est undefined, il utilise 0
-                    value={notes[key] ?? 0} 
+                    value={notes[key as keyof typeof notes] ?? 0} 
                     onChange={(e) => setNotes({
                       ...notes, 
                       [key]: parseFloat(e.target.value) || 0 
@@ -269,11 +269,11 @@ export default function EvaluerTalent() {
                     <div key={item.id}>
                       <div className="flex justify-between text-xs mb-1">
                         <label className="capitalize">{item.label}</label>
-                        <span className="text-accent">{notes[item.id]}/10</span>
+                        <span className="text-accent">{notes[item.id as keyof typeof notes]}/10</span>
                       </div>
                       <input 
                         type="range" min="0" max="10" step="0.5" 
-                        value={notes[item.id] ?? 0} 
+                        value={notes[item.id as keyof typeof notes] ?? 0} 
                         onChange={(e) => setNotes({ ...notes, [item.id]: parseFloat(e.target.value) || 0 })}
                         className="w-full h-2 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-accent"
                       />
@@ -291,11 +291,11 @@ export default function EvaluerTalent() {
               <div key={item.id}>
                 <div className="flex justify-between text-xs mb-1">
                   <label className="capitalize">{item.label}</label>
-                  <span className="text-accent">{notes[item.id]}/10</span>
+                  <span className="text-accent">{notes[item.id as keyof typeof notes]}/10</span>
                 </div>
                 <input 
                   type="range" min="0" max="10" step="0.5" 
-                  value={notes[item.id] ?? 0} 
+                  value={notes[item.id as keyof typeof notes] ?? 0} 
                   onChange={(e) => setNotes({ ...notes, [item.id]: parseFloat(e.target.value) || 0 })}
                   className="w-full h-2 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-accent"
                 />
